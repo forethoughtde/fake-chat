@@ -1,0 +1,38 @@
+#chatWindowContainer {
+	position: fixed;
+	width: 80%;
+	right: 22px;
+	bottom: 100px;
+	border-radius: 20px;
+
+	box-shadow: 0 7px 30px -5px rgba(0, 0, 0, 0.3);
+	background-color: #ffffff;
+	display: block;
+	padding: 32px 16px;
+	outline: none;
+}
+
+@media screen and (min-width: 580px){
+	#chatWindowContainer {
+		width: 340px;
+	}
+}
+
+button{
+	cursor: pointer;
+	width: 100%;
+	border-radius: 22px;
+	background-color: #ffffff;
+	height: 44px;
+	border: 1px solid #00877C;
+	color: #00877C;
+	margin-bottom: 16px;
+	outline: none;
+
+	font-size: 16px;
+}
+
+button:hover{
+	background-color: #00877C;
+	color: #ffffff;
+}
