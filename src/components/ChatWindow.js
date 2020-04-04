@@ -2,9 +2,9 @@ import React from 'react';
 import './ChatWindow.css';
 import {useDispatch, useSelector} from "react-redux";
 
-const ChatWindow = ({ setPillWindow })=>{
+const ChatWindow = ( )=>{
 
-    const { bgColor } = useSelector();
+    const { bgColor } = useSelector((state) => state.bgColor);
     const dispatch = useDispatch();
 
     return (

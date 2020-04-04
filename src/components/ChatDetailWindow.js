@@ -8,8 +8,8 @@ const ChatDetailWindow = ()=>{
         'I am here to help you out', 'I am really here, to help you out',
         'I am called the expert in everything...', 'Lets talk life, love, and all.']
 
-    const { bgColor } = useSelector();
-    const { isInitialOn } = useSelector();
+    const { bgColor } = useSelector((state) => state.bgColor);
+    const { isInitialOn } = useSelector((state) => state.isInitialOn);
     const dispatch = useDispatch()
 
     const [chat, setChat] = useState('');
