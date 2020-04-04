@@ -4,12 +4,12 @@ import {useDispatch, useSelector} from "react-redux";
 
 const ChatWindow = ({ setPillWindow })=>{
 
-    const bgColor = useSelector((state)=>state.bgColor);
+    const { bgColor } = useSelector();
     const dispatch = useDispatch();
 
     return (
         <div id="chatWindowContainer">
-            <div className="close_icon" onClick={() => dispatch({ type : 'PILL_WINDOW_OFF' })}>
+            <div className="close_icon" onClick={()=>dispatch({ type : 'PILL_WINDOW_OFF' })}>
                 <svg data-v-1a53d433=""
                      xmlns="http://www.w3.org/2000/svg"
                      width="12"
@@ -22,12 +22,18 @@ const ChatWindow = ({ setPillWindow })=>{
             </div>
             <p className="margin_btn_16 padding_left_8 padding_right_8">Choice is your's</p>
             <button className="bgBlue"
-                    onClick={() => {dispatch({type: 'BLUE'}); dispatch({type: 'INITIAL_WINDOW_OFF'})}}
+                    onClick={()=>{
+                        dispatch({ type : 'BLUE' });
+                        dispatch({ type : 'INITIAL_WINDOW_OFF' })
+                    }}
                     onMouseEnter={()=>dispatch({ type : 'BLUE' })}
                     onMouseLeave={()=>dispatch({ type : 'REVERT_BACK_COLOR' })}>Blue pill
             </button>
             <button className="bgRed"
-                    onClick={() => {dispatch({type: 'RED'}); dispatch({type: 'INITIAL_WINDOW_OFF'})}}
+                    onClick={()=>{
+                        dispatch({ type : 'RED' });
+                        dispatch({ type : 'INITIAL_WINDOW_OFF' })
+                    }}
                     onMouseEnter={()=>dispatch({ type : 'RED' })}
                     onMouseLeave={()=>dispatch({ type : 'REVERT_BACK_COLOR' })}>Red pill
             </button>
