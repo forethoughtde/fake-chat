@@ -1,6 +1,8 @@
 import React from 'react';
+import { useSelector } from "react-redux";
+const Header = ({title}) => {
 
-const Header = ({title, bgColor}) => {
+    const bgColor = useSelector( (state) => state.bgColor)
 
     const divStyle = {
         background: bgColor,

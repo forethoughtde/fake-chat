@@ -1,11 +1,16 @@
 import React, {useState, useEffect, useRef} from 'react';
 import './ChatDetailWindow.css'
+import { useDispatch, useSelector } from "react-redux";
 
-const ChatDetailWindow = ({ isInitialOn, setInitialOn, setBgColor, bgColor })=>{
+const ChatDetailWindow = ()=>{
 
     const autoChats = ['Good to talk to you here',
         'I am here to help you out', 'I am really here, to help you out',
         'I am called the expert in everything...', 'Lets talk life, love, and all.']
+
+    const bgColor = useSelector((state) => state.bgColor);
+    const isInitialOn = useSelector((state) => state.isInitialOn);
+    const dispatch = useDispatch()
 
     const [chat, setChat] = useState('');
     const [customChat, setCustomChat] = useState(['Hello there from PK']);
@@ -32,8 +37,8 @@ const ChatDetailWindow = ({ isInitialOn, setInitialOn, setBgColor, bgColor })=>{
     }
 
     const closeWindow = (e) => {
-        setInitialOn(!isInitialOn);
-        setBgColor('#00877C');
+        dispatch({type: 'INITIAL_WINDOW_ON'})
+        dispatch({type: 'REVERT_BACK_COLOR'})
     }
 
     const getRandom = ()=>{

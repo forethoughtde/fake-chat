@@ -1,29 +1,15 @@
 import React from 'react';
 import './ChatWindow.css';
+import {useDispatch, useSelector} from "react-redux";
 
-const ChatWindow = ({bgColor, setBgColor, isInitialOn, setInitialOn, setPillWindow})=>{
+const ChatWindow = ({ setPillWindow })=>{
 
-    const changeColor = (e) => {
-        const color = window.getComputedStyle(e.target, null).getPropertyValue("border-top-color");
-        setBgColor(color);
-    }
-
-    const changeColorBack = (e) =>{
-        setBgColor('#00877C');
-    }
-
-    const openChatWindow = (e) => {
-        setInitialOn(!isInitialOn);
-        changeColor(e)
-    }
-
-    const closePillWindow = () => {
-        setPillWindow(false)
-    }
+    const bgColor = useSelector((state)=>state.bgColor);
+    const dispatch = useDispatch();
 
     return (
         <div id="chatWindowContainer">
-            <div className="close_icon" onClick={closePillWindow}>
+            <div className="close_icon" onClick={() => dispatch({ type : 'PILL_WINDOW_OFF' })}>
                 <svg data-v-1a53d433=""
                      xmlns="http://www.w3.org/2000/svg"
                      width="12"
@@ -35,8 +21,16 @@ const ChatWindow = ({bgColor, setBgColor, isInitialOn, setInitialOn, setPillWind
                 </svg>
             </div>
             <p className="margin_btn_16 padding_left_8 padding_right_8">Choice is your's</p>
-            <button className="bgBlue" onMouseEnter={changeColor}  onMouseLeave={changeColorBack} onClick={openChatWindow}>Blue pill</button>
-            <button className="bgRed" onMouseEnter={changeColor}  onMouseLeave={changeColorBack} onClick={openChatWindow}>Red pill</button>
+            <button className="bgBlue"
+                    onClick={() => {dispatch({type: 'BLUE'}); dispatch({type: 'INITIAL_WINDOW_OFF'})}}
+                    onMouseEnter={()=>dispatch({ type : 'BLUE' })}
+                    onMouseLeave={()=>dispatch({ type : 'REVERT_BACK_COLOR' })}>Blue pill
+            </button>
+            <button className="bgRed"
+                    onClick={() => {dispatch({type: 'RED'}); dispatch({type: 'INITIAL_WINDOW_OFF'})}}
+                    onMouseEnter={()=>dispatch({ type : 'RED' })}
+                    onMouseLeave={()=>dispatch({ type : 'REVERT_BACK_COLOR' })}>Red pill
+            </button>
         </div>
     );
 

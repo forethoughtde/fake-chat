@@ -1,16 +1,18 @@
 import React from 'react';
 import ChatIcon from "./ChatIcon";
 import ChatWindow from "./ChatWindow";
+import { useSelector} from "react-redux";
 
+const ChatInitialWindow = () => {
 
-const ChatInitialWindow = ({isInitialOn, setInitialOn, setBgColor, bgColor, pillWindow, setPillWindow}) => {
+    const pillWindow = useSelector((state) => state.pillWindowOn)
 
     return (
-      <div className={isInitialOn ? 'show': 'hide' }>
-          <ChatIcon bgColor={bgColor} isInitialOn={isInitialOn} setInitialOn={setInitialOn}/>
+      <div>
+          <ChatIcon/>
           {
               pillWindow &&
-              <ChatWindow bgColor={bgColor} setBgColor={setBgColor} isInitialOn={isInitialOn} setInitialOn={setInitialOn} setPillWindow={setPillWindow}/>
+              <ChatWindow />
           }
       </div>
     );
