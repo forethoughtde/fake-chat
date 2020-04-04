@@ -3,11 +3,12 @@ import './ChatDetailWindow.css'
 
 const ChatDetailWindow = ({ isInitialOn, setInitialOn, setBgColor, bgColor })=>{
 
-    const autoChats = ['Hello there', 'Good to talk to you here', 'I am here to help you out', 'I am called the expert in everything...']
-
+    const autoChats = ['Good to talk to you here',
+        'I am here to help you out', 'I am really here, to help you out',
+        'I am called the expert in everything...', 'Lets talk life, love, and all.']
 
     const [chat, setChat] = useState('');
-    const [customChat, setCustomChat] = useState([]);
+    const [customChat, setCustomChat] = useState(['Hello there from PK']);
 
     const messagesEndRef = useRef(null)
 

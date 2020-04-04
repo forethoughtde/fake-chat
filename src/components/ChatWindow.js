@@ -1,7 +1,7 @@
 import React from 'react';
 import './ChatWindow.css';
 
-const ChatWindow = ({bgColor, setBgColor, isInitialOn, setInitialOn})=>{
+const ChatWindow = ({bgColor, setBgColor, isInitialOn, setInitialOn, setPillWindow})=>{
 
     const changeColor = (e) => {
         const color = window.getComputedStyle(e.target, null).getPropertyValue("border-top-color");
@@ -17,9 +17,13 @@ const ChatWindow = ({bgColor, setBgColor, isInitialOn, setInitialOn})=>{
         changeColor(e)
     }
 
+    const closePillWindow = () => {
+        setPillWindow(false)
+    }
+
     return (
         <div id="chatWindowContainer">
-            <div className="close_icon">
+            <div className="close_icon" onClick={closePillWindow}>
                 <svg data-v-1a53d433=""
                      xmlns="http://www.w3.org/2000/svg"
                      width="12"
@@ -30,7 +34,7 @@ const ChatWindow = ({bgColor, setBgColor, isInitialOn, setInitialOn})=>{
                     </g>
                 </svg>
             </div>
-            <p className="margin_btn_16 padding_left_8 padding_right_8">The Philosophy Of Pills - Choice is yours</p>
+            <p className="margin_btn_16 padding_left_8 padding_right_8">Choice is your's</p>
             <button className="bgBlue" onMouseEnter={changeColor}  onMouseLeave={changeColorBack} onClick={openChatWindow}>Blue pill</button>
             <button className="bgRed" onMouseEnter={changeColor}  onMouseLeave={changeColorBack} onClick={openChatWindow}>Red pill</button>
         </div>
