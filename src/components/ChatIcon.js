@@ -1,10 +1,14 @@
 import React from 'react';
 import './Chat.css'
 
-const ChatIcon = ()=>{
+const ChatIcon = ({bgColor})=>{
+
+    const divStyle = {
+        backgroundColor: bgColor
+    }
 
     return (
-        <div id="chatIconContainer">
+        <div id="chatIconContainer" style={divStyle}>
         </div>
     );
 

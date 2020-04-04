@@ -1,7 +1,21 @@
 import React from 'react';
 import './ChatWindow.css';
 
-const ChatWindow = ()=>{
+const ChatWindow = ({bgColor, setBgColor, isInitialOn, setInitialOn})=>{
+
+    const changeColor = (e) => {
+        const color = window.getComputedStyle(e.target, null).getPropertyValue("border-top-color");
+        setBgColor(color);
+    }
+
+    const changeColorBack = (e) =>{
+        setBgColor('#00877C');
+    }
+
+    const openChatWindow = (e) => {
+        setInitialOn(!isInitialOn);
+        changeColor(e)
+    }
 
     return (
         <div id="chatWindowContainer">
@@ -11,14 +25,14 @@ const ChatWindow = ()=>{
                      width="12"
                      height="10"
                      viewBox="0 0 12 10">
-                    <g data-v-1a53d433="" fill="none" fillRule="evenodd" stroke="#00877C" strokeLinecap="round">
+                    <g data-v-1a53d433="" fill="none" fillRule="evenodd" stroke={bgColor} strokeLinecap="round">
                         <path data-v-1a53d433="" d="M1 0l10 10M11 0L1 10"></path>
                     </g>
                 </svg>
             </div>
-            <p className="margin_btn_16 padding_left_8">Are you looking for a job?</p>
-            <button>Explore jobs</button>
-            <button>Ask a question</button>
+            <p className="margin_btn_16 padding_left_8 padding_right_8">The Philosophy Of Pills - Choice is yours</p>
+            <button className="bgBlue" onMouseEnter={changeColor}  onMouseLeave={changeColorBack} onClick={openChatWindow}>Blue pill</button>
+            <button className="bgRed" onMouseEnter={changeColor}  onMouseLeave={changeColorBack} onClick={openChatWindow}>Red pill</button>
         </div>
     );
 

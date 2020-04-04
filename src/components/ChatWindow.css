@@ -32,7 +32,29 @@ button{
 	font-size: 16px;
 }
 
+button:last-child{
+	margin-bottom: 0;
+}
+
+.bgBlue{
+	border: 1px solid #00008B;
+	color: #00008B;
+}
+
+.bgBlue:hover{
+	background-color: #00008B;
+}
+
+.bgRed{
+	border: 1px solid #FF0000;
+	color: #FF0000;
+}
+
+.bgRed:hover{
+	background-color: #FF0000;
+}
+
 button:hover{
-	background-color: #00877C;
+	/*background-color: #00877C;*/
 	color: #ffffff;
 }

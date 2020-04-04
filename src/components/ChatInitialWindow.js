@@ -3,12 +3,12 @@ import ChatIcon from "./ChatIcon";
 import ChatWindow from "./ChatWindow";
 
 
-const ChatInitialWindow = ({isInitialOn, setInitialOn}) => {
+const ChatInitialWindow = ({isInitialOn, setInitialOn, setBgColor, bgColor}) => {
 
     return (
-      <div className={isInitialOn ? 'show': 'hide' } onClick={() => setInitialOn(!isInitialOn)}>
-          <ChatIcon />
-          <ChatWindow />
+      <div className={isInitialOn ? 'show': 'hide' }>
+          <ChatIcon bgColor={bgColor}/>
+          <ChatWindow bgColor={bgColor} setBgColor={setBgColor} isInitialOn={isInitialOn} setInitialOn={setInitialOn}/>
       </div>
     );
 };
