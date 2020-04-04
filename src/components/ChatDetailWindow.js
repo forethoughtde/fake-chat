@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useRef} from 'react';
 import './ChatDetailWindow.css'
-import { useDispatch, useSelector } from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 
 const ChatDetailWindow = ()=>{
 
@@ -8,8 +8,8 @@ const ChatDetailWindow = ()=>{
         'I am here to help you out', 'I am really here, to help you out',
         'I am called the expert in everything...', 'Lets talk life, love, and all.']
 
-    const bgColor = useSelector((state) => state.bgColor);
-    const isInitialOn = useSelector((state) => state.isInitialOn);
+    const { bgColor } = useSelector();
+    const { isInitialOn } = useSelector();
     const dispatch = useDispatch()
 
     const [chat, setChat] = useState('');
@@ -18,16 +18,16 @@ const ChatDetailWindow = ()=>{
     const messagesEndRef = useRef(null)
 
     const divStyle = {
-        backgroundColor: bgColor
+        backgroundColor : bgColor
     }
 
     const buttonStyle = {
-        borderColor: bgColor,
-        color: bgColor
+        borderColor : bgColor,
+        color : bgColor
     }
 
-    const scrollToBottom = () => {
-        messagesEndRef.current.scrollIntoView({ behavior: "smooth" })
+    const scrollToBottom = ()=>{
+        messagesEndRef.current.scrollIntoView({ behavior : "smooth" })
     }
 
     useEffect(scrollToBottom, [customChat]);
@@ -36,9 +36,9 @@ const ChatDetailWindow = ()=>{
         setChat(e.target.value);
     }
 
-    const closeWindow = (e) => {
-        dispatch({type: 'INITIAL_WINDOW_ON'})
-        dispatch({type: 'REVERT_BACK_COLOR'})
+    const closeWindow = (e)=>{
+        dispatch({ type : 'INITIAL_WINDOW_ON' })
+        dispatch({ type : 'REVERT_BACK_COLOR' })
     }
 
     const getRandom = ()=>{
@@ -81,7 +81,7 @@ const ChatDetailWindow = ()=>{
                         <span className="chatMessage" style={divStyle}>{c}</span>
                     </div>)
                 })}
-                <div ref={messagesEndRef} />
+                <div ref={messagesEndRef}/>
             </section>
             <footer className="flexContainer padding_8 justifyContentSpaceBetween">
                 <input type="text" placeholder="Type a message" value={chat} onChange={updateInput}/>
