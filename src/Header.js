@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from "react-redux";
 const Header = ({title}) => {
 
-    const bgColor = useSelector( (state) => state.bgColor)
+    const bgColor = useSelector( (state) => state.changeColorReducer.bgColor)
 
     const divStyle = {
         background: bgColor,

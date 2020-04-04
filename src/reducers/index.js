@@ -1,28 +1,10 @@
-const initialValue = {
-    bgColor : '#00877C',
-    pillWindowOn : true,
-    isInitialOn : true
-}
+import {combineReducers} from 'redux'
+import changeColorReducer from './changeColorReducer';
+import pillWindowReducer from './pillWindowReducer';
+import initialWindowReducer from './initialWindowReducer';
 
-const allReducers = (state = initialValue, action)=>{
-    switch (action.type) {
-        case 'BLUE':
-            return { ...state, bgColor : '#00008B' };
-        case 'RED':
-            return { ...state, bgColor : 'red' };
-        case 'REVERT_BACK_COLOR':
-            return { ...state, bgColor : '#00877C' };
-        case 'PILL_WINDOW_ON':
-            return { ...state, pillWindowOn : true };
-        case 'PILL_WINDOW_OFF':
-            return { ...state, pillWindowOn : false };
-        case 'INITIAL_WINDOW_OFF':
-            return { ...state, isInitialOn : false };
-        case 'INITIAL_WINDOW_ON':
-            return { ...state, isInitialOn : true };
-        default:
-            return state
-    }
-};
+const rootReducer = combineReducers({
+    changeColorReducer, initialWindowReducer, pillWindowReducer
+});
 
-export default allReducers;
+export default rootReducer;

@@ -4,7 +4,7 @@ import {useSelector, useDispatch} from "react-redux";
 
 const ChatIcon = ()=>{
 
-    const bgColor = useSelector((state)=>state.bgColor)
+    const bgColor = useSelector((state)=>state.changeColorReducer.bgColor)
 
     const dispatch = useDispatch()
 

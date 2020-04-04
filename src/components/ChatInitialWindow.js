@@ -5,7 +5,7 @@ import { useSelector} from "react-redux";
 
 const ChatInitialWindow = () => {
 
-    const pillWindow = useSelector((state) => state.pillWindowOn)
+    const pillWindow = useSelector((state) => state.pillWindowReducer.pillWindowOn)
 
     return (
       <div>
