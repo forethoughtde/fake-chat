@@ -4,7 +4,7 @@ import ChatDetailWindow from './ChatDetailWindow';
 import { useSelector } from "react-redux";
 
 const ChatContainer = ()=>{
-    const {isInitialOn} = useSelector((state) => state.isInitialOn)
+    const isInitialOn = useSelector((state) => state.isInitialOn)
 
     if (isInitialOn) {
         return (<div id="chatContainer">

@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 
 const ChatWindow = ( )=>{
 
-    const { bgColor } = useSelector((state) => state.bgColor);
+    const bgColor  = useSelector((state) => state.bgColor);
     const dispatch = useDispatch();
 
     return (
